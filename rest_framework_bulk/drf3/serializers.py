@@ -68,3 +68,10 @@ class BulkListSerializer(ListSerializer):
             updated_objects.append(self.child.update(obj, obj_validated_data))
 
         return updated_objects
+
+    def __iter__(self):
+        return self
+
+    def next(self):
+        raise StopIteration
+
